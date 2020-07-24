@@ -21,20 +21,21 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useUnifiedTopology: true
 });
 
-const path=require("path")
+// const path=require("path")
 
-// get route to exercise page
-app.get("/exercise",(req,res)=>{
-  res.sendFile(path.join(__dirname,"./public/exercise.html"))
-})
+// // get route to exercise page
+// app.get("/exercise",(req,res)=>{
+//   res.sendFile(path.join(__dirname,"./public/exercise.html"))
+// })
 
-// get route to stats page
-app.get("/stats",(req,res)=>{
-  res.sendFile(path.join(__dirname,"./public/stats.html"))
-})
+// // get route to stats page
+// app.get("/stats",(req,res)=>{
+//   res.sendFile(path.join(__dirname,"./public/stats.html"))
+// })
 
 
-
+// Requiring routes
+require("./routes/html-routes.js")(app);
 
 app.listen(PORT,()=>{
     console.log(`Server is running on http://localhost:${PORT}`)
