@@ -23,47 +23,11 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useUnifiedTopology: true,
 });
 
-// api route for retrieving all workouts
-app.get("/api/workouts", (req, res) => {
-  db.Workout.find({}).then((foundWorkouts) => {
-    console.log(foundWorkouts)
-    res.json(foundWorkouts);
-  });
-});
-// api route for creating a workout
-app.post("/api/workouts", (req, res) => {
-  db.Workout.create(req.body).then((createdWorkout) => {
-    console.log(createdWorkout)
-    res.json(createdWorkout);
-  });
-});
 
-app.put("/api/workouts/:id",(req,res)=>{
-  db.Workout.update(
-    {_id:req.params.id},
-    {$push:{exercises:req.body}}
-  ).then(results=>{
-    console.log(results)
-    res.json(results)
-  })
-})
-// need to get all workouts from backend using /api/workouts/range
-app.get("/api/workouts/range", (req, res) => {
-  db.Workout.find({}).then((allWorkouts) => {
-    console.log(allWorkouts)
-    res.json(allWorkouts);
-  });
-});
-// api route to delete all data inside collection(workouts)
-app.delete("/api/workouts",(req,res)=>{
-  db.Workout.deleteMany({})
-  .then((data)=>{
-    console.log(data);
-    res.json(data)
-  })
-})
 // Requiring routes
 require("./routes/html-routes.js")(app);
+app.use(require("./routes/api-routes"))
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
