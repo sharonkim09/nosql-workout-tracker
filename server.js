@@ -29,6 +29,16 @@ db.Workout.find({},(err, data)=>{
   res.json(data)
 })
 })
+// api route for creating a workout
+app.post("/api/workouts",(req,res)=>{
+  db.Workout.create({}).then(creatingWorkout=>{
+    res.json(creatingWorkout)
+  })
+})
+// route works but exercise is empty... gotta fix my schema?
+
+
+
 
 // Requiring routes
 require("./routes/html-routes.js")(app);
