@@ -30,3 +30,8 @@ app.use(require("./routes/api-routes"))
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+
+// things to work on....
+// seems as date is not correct new workout gets added as next day 
+// need totalDuration in schema
