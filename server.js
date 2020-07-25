@@ -47,7 +47,13 @@ app.put("/api/workouts/:id",(req,res)=>{
     res.json(results)
   })
 })
-// route works but exercise is empty... gotta fix my schema?
+// need to get all workouts from backend using /api/workouts/range
+app.get("/api/workouts/range", (req, res) => {
+  db.Workout.find({}).then((allWorkouts) => {
+    console.log(allWorkouts)
+    res.json(allWorkouts);
+  });
+});
 
 // Requiring routes
 require("./routes/html-routes.js")(app);
