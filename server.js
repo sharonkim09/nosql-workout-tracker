@@ -33,5 +33,4 @@ app.listen(PORT, () => {
 
 
 // things to work on....
-// seems as date is not correct new workout gets added as next day 
-// need totalDuration in schema
+// creating new workout gets added as next day but totalDuration adds fine.

@@ -20,7 +20,7 @@ This application is a workout tracker where user is able to view, create, and tr
 
 [Link to Deployed Website](https://serene-caverns-65577.herokuapp.com/)
 
-
+![Screenshot of Workout Tracker](./public/img/workout-screenshot.png)
 
 ## Credits
 The front end was already provided by the curriculum team. The instructions were provided to me by GT Full Stack Coding Program.
