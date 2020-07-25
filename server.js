@@ -10,7 +10,7 @@ const logger = require("morgan");
 const PORT = process.env.PORT || 3000;
 
 // const db = require("./models/Workout")
-const Workout = require("./models/Workout");
+const db = require("./models");
 app.use(logger("dev"));
 // for data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -25,21 +25,26 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
 
 // api route for retrieving all workouts
 app.get("/api/workouts", (req, res) => {
-  Workout.find({}).then((foundWorkouts) => {
-    res.json({
-      success: true,
-      data: foundWorkouts,
-    });
+  db.Workout.find({}).then((foundWorkouts) => {
+    console.log(foundWorkouts)
+    res.json(foundWorkouts);
   });
 });
 // api route for creating a workout
-app.post("/api/workouts",(req,res)=>{
-  Workout.create(req.body).then(createdWorkout=>{
-    res.json({
-      error:false,
-       data:createdWorkout,
-       message:"Successfully created workout!"
-    })
+app.post("/api/workouts", (req, res) => {
+  db.Workout.create(req.body).then((createdWorkout) => {
+    console.log(createdWorkout)
+    res.json(createdWorkout);
+  });
+});
+
+app.put("/api/workouts/:id",(req,res)=>{
+  db.Workout.update(
+    {_id:req.params.id},
+    {$push:{exercises:req.body}}
+  ).then(results=>{
+    console.log(results)
+    res.json(results)
   })
 })
 // route works but exercise is empty... gotta fix my schema?
