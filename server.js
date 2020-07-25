@@ -9,6 +9,7 @@ const logger = require("morgan");
 
 const PORT = process.env.PORT || 3000;
 
+const db = require("./models")
 app.use(logger("dev"));
 // for data parsing
 app.use(express.urlencoded({extended:true}))
@@ -21,11 +22,12 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useUnifiedTopology: true
 });
 
-
+// api route for retrieving all workouts
 app.get("/api/workouts",(req,res)=>{
-  res.json({
-    success:true,
-  })
+db.Workout.find({},(err, data)=>{
+  if(err) throw err;
+  res.json(data)
+})
 })
 
 // Requiring routes
