@@ -54,7 +54,14 @@ app.get("/api/workouts/range", (req, res) => {
     res.json(allWorkouts);
   });
 });
-
+// api route to delete all data inside collection(workouts)
+app.delete("/api/workouts",(req,res)=>{
+  db.Workout.deleteMany({})
+  .then((data)=>{
+    console.log(data);
+    res.json(data)
+  })
+})
 // Requiring routes
 require("./routes/html-routes.js")(app);
 
