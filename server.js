@@ -21,18 +21,12 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useUnifiedTopology: true
 });
 
-// const path=require("path")
 
-// // get route to exercise page
-// app.get("/exercise",(req,res)=>{
-//   res.sendFile(path.join(__dirname,"./public/exercise.html"))
-// })
-
-// // get route to stats page
-// app.get("/stats",(req,res)=>{
-//   res.sendFile(path.join(__dirname,"./public/stats.html"))
-// })
-
+app.get("/api/workouts",(req,res)=>{
+  res.json({
+    success:true,
+  })
+})
 
 // Requiring routes
 require("./routes/html-routes.js")(app);
