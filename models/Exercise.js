@@ -1,6 +1,8 @@
+// dependancies
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// defining exercise schema
 const ExerciseSchema = new Schema({
   type: {
     type: String,
@@ -34,6 +36,6 @@ const ExerciseSchema = new Schema({
   },
 });
 
+// exporting model on mongoose instance passing in collection and schema
 const Exercise = mongoose.model("Exercise", ExerciseSchema);
-
 module.exports = Exercise;
