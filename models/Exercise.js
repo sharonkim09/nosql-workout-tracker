@@ -37,5 +37,5 @@ const ExerciseSchema = new Schema({
 });
 
 // exporting model on mongoose instance passing in collection and schema
-const Exercise = mongoose.model("Exercise", ExerciseSchema);
-module.exports = Exercise;
+// const Exercise = mongoose.model("Exercise", ExerciseSchema);
+// module.exports = Exercise;
