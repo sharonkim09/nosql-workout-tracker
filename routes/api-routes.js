@@ -8,7 +8,7 @@ router.get("/api/workouts", (req, res) => {
       res.json(foundWorkouts);
     })
     .catch((err) => {
-      res.json(err);
+      res.status(400).json(err);
     });
 });
 // api route for creating a workout
@@ -19,7 +19,7 @@ router.post("/api/workouts", (req, res) => {
       res.json(createdWorkout);
     })
     .catch((err) => {
-      res.json(err);
+      res.status(400).json(err);
     });
 });
 
@@ -30,7 +30,7 @@ router.put("/api/workouts/:id", (req, res) => {
       res.json(results);
     })
     .catch((err) => {
-      res.json(err);
+      res.status(400).json(err);
     });
 });
 // need to get all workouts from backend using /api/workouts/range
@@ -41,7 +41,7 @@ router.get("/api/workouts/range", (req, res) => {
       res.json(allWorkouts);
     })
     .catch((err) => {
-      res.json(err);
+      res.status(400).json(err);
     });
 });
 // api route to delete all data inside collection(workouts)
@@ -52,7 +52,7 @@ router.delete("/api/workouts", (req, res) => {
       res.json(data);
     })
     .catch((err) => {
-      res.json(err);
+      res.status(400).json(err);
     });
 });
 
