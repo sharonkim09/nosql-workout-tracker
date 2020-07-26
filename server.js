@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // boilerplate for mongoose connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://sharon:sharon123@ds247688.mlab.com:47688/heroku_gh8v4qvg", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
