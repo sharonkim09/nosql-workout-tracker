@@ -4,7 +4,6 @@ const db = require("../models");
 router.get("/api/workouts", (req, res) => {
   db.Workout.find({})
     .then((foundWorkouts) => {
-      console.log(foundWorkouts);
       res.json(foundWorkouts);
     })
     .catch((err) => {
@@ -15,7 +14,6 @@ router.get("/api/workouts", (req, res) => {
 router.post("/api/workouts", (req, res) => {
   db.Workout.create(req.body)
     .then((createdWorkout) => {
-      console.log(createdWorkout);
       res.json(createdWorkout);
     })
     .catch((err) => {
@@ -37,7 +35,6 @@ router.put("/api/workouts/:id", (req, res) => {
 router.get("/api/workouts/range", (req, res) => {
   db.Workout.find({})
     .then((allWorkouts) => {
-      console.log(allWorkouts);
       res.json(allWorkouts);
     })
     .catch((err) => {
@@ -48,7 +45,6 @@ router.get("/api/workouts/range", (req, res) => {
 router.delete("/api/workouts", (req, res) => {
   db.Workout.deleteMany({})
     .then((data) => {
-      console.log(data);
       res.json(data);
     })
     .catch((err) => {

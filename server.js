@@ -30,7 +30,3 @@ app.use(require("./routes/api-routes"))
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-
-
-// things to work on....
-// creating new workout gets added as next day but totalDuration adds fine.
